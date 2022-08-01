@@ -9,36 +9,19 @@ window.addEventListener('scroll', () => {
         header_middle.classList.remove('fixed-top');
     }
     
-    let about_position = document.getElementById('about');
-    console.log(about_position)
-    if (about_position.scrollHeight > parseInt(this.scrollY)) {
-    
-    }
-});
-    
-    // Define selector for selecting
-    // anchor links with the hash
-    let anchorSelector = 'a[href^="#"]';
-    
-    // Collect all such anchor links
-    let anchorList = document.querySelectorAll(anchorSelector);
-    
-    // Iterate through each of the links
-    anchorList.forEach(link => {
-        link.onclick = function (e) {
-        // Prevent scrolling if the
-        // hash value is blank
-        e.preventDefault();
-    
-        // Get the destination to scroll to
-        // using the hash property
-        let destination = document.querySelector(this.hash);
-    
-        // Scroll to the destination using
-        // scrollIntoView method
-        destination.scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-});
+    var current = "";
+    var sections = document.querySelectorAll('.section');
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset + 1 >= sectionTop)
+        current = section.getAttribute("id");
+    });
   
+    var navLi = document.querySelectorAll('a[href^="#"]');
+    navLi.forEach((li) => {
+      li.classList.remove("active-menu-item");
+      if (li.getAttribute('href') === `#${current}`) {
+        li.classList.add("active-menu-item");
+      }
+    });
+});
