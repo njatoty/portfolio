@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="section profile-section" id="about">
-      <h4 class="section-title">ABOUT</h4>
+      <h4 class="section-title">ABOUT ME</h4>
       <div class="profile-container">
         <div class="my-pic">
           <!-- <img src="https://scontent.ftnr5-1.fna.fbcdn.net/v/t39.30808-6/258316328_892395331411420_8812921627191996640_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGhJn1BX6DvzHcXaV1JXrjKzwjrL7rhzf3PCOsvuuHN_Vctojpw8AUbMj-Nc6E_SN4nvQ7CRwmfyACa7K0F1WZI&_nc_ohc=ADIq-NDs8roAX8xe3sy&_nc_ht=scontent.ftnr5-1.fna&oh=00_AT8T3840HhCV1jxAZcj9avtS82LxI8XRw9pS_UpqCp0zDw&oe=62E5FCF6" alt="my profile"/> -->
@@ -48,7 +48,7 @@
     <div class="section skill-section" id="skill">
       <h4 class="section-title">SKILLS</h4>
       <div class="prog-lang-list">
-        <h4 class="skill-title">All programming languages i have learnt.</h4>
+        <h4 class="skill-title">All programming languages i have been learning.</h4>
         <div class="prog-lang-item">
           <img src="img/svg/html5-without-wordmark-color.svg" alt="" class="prog-lang-img">
           <p class="prog-lang-desc">HTML</p>
@@ -90,7 +90,9 @@
               <img src="img/app/quiz-app.PNG" alt="quiz-react">
             </div>
           </div>
-          <a class="project-link" href="https://dashboard.heroku.com/apps/quizreact-30130">See app </a>
+          <div class="project-link">
+            <a href="https://dashboard.heroku.com/apps/quizreact-30130">See app </a>
+          </div>
         </div>
         <div class="project-item">
           <p class="project-desc">2 - Stock management application done by using NodeJS and MongooDB.</p>
@@ -99,16 +101,20 @@
               <img src="img/app/stock-app.PNG" alt="quiz-react">
             </div>
           </div>
-          <a class="project-link" href="https://demo-stock-nate.herokuapp.com/login"> <i class="fab fa-heroku"></i> See app </a>
+          <div class="project-link">
+            <a href="https://demo-stock-nate.herokuapp.com/login"> <i class="fab fa-heroku"></i> See app </a>
+          </div>
         </div>
         <div class="project-item">
-          <p class="project-desc">3 - GAZETTE Application, a platform application to process data by stocking them in a xml file.</p>
+          <p class="project-desc">3 - GAZETTE Application, a platform application to process data by stocking them in a xml file. Made by NodeJS.</p>
           <div class="project-content">
             <div class="project-view">
               <img src="img/app/gazette-app.PNG" alt="quiz-react">
             </div>
           </div>
-          <a class="project-link" href="https://optimumsolutions-gazette2.herokuapp.com/">See app </a>
+          <div class="project-link">
+            <a href="https://optimumsolutions-gazette2.herokuapp.com/">See app </a>
+          </div>
         </div>
       </div>
     </div>
@@ -142,13 +148,13 @@
   <div class="footer">
     <div class="footer-container">
       <div class="link">
-        <a href="#">
+        <a href="https://www.facebook.com/njatotiana.fiononana.a" target="_blank">
           <i class="fab fa-facebook-f" aria-hidden="true"></i>
         </a>
         <a href="#">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="#">
+        <a href="https://github.com/Njato007" target="_blank">
           <i class="fab fa-github"></i>
         </a>
       </div>
@@ -210,9 +216,9 @@
     }
 
     if (valid) {
-      http.send(`senderUsername=${username.value}&senderEmail=${email.value}&message=${message.value}`);
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
+      http.send(`senderUsername=${username.value}&senderEmail=${email.value}&message=${message.value}`);
     }
   });
 

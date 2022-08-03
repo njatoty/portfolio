@@ -118,31 +118,33 @@ a {
 }
 .section {
     width: 100%;
-    padding: 40px 10px;
+    padding: 50px 10px;
+    overflow: hidden;
 }
 svg > path {
     fill: var(--black);
 }
 .section:nth-child(1) {
     width: 100%;
-    height: 50vh;
     background: var(--light-1);
     padding: 0;
     position: relative;
+    height: 50vh;
 }
 .section:nth-child(2) {
     background: var(--black);
-    /* height: 50vh; */
+    /* height: 100vh; */
 }
 .section:nth-child(3) {
     background: var(--black-3);
+    min-height: 100vh;
 }
 .section:nth-child(4) {
     color: var(--white);
+    min-height: 100vh;
 }
 .section:nth-child(5) {
     background: var(--light-1);
-    /* height: 100vh; */
 }
 
 .welcome-section > div {
@@ -162,6 +164,8 @@ svg > path {
     font-size: 60px;
     color: var(--tomato);
     margin-bottom: 20px;
+    animation: .6s fall-down ease-in;
+    position: relative;
 }
 
 .welcome-bg {
@@ -174,6 +178,12 @@ svg > path {
     color: var(--black);
     line-height: 1.5;
     padding: 6px 35px;
+    animation-delay: 0.5s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards; 
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
 }
 .welcome-logo {
     /* background-image: url("https://cdn.dribbble.com/users/185200/screenshots/711238/coder.jpg"); */
@@ -184,8 +194,12 @@ svg > path {
     background-position: center;
 }
 
+.profile-section {
+    height: 100%;
+}
 .profile-container {
     display: flex;
+    margin: auto;
 }
 
 .profile-section > h4 {
@@ -201,6 +215,12 @@ svg > path {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
+    transform: rotateX(90deg);
+    animation-delay: 0.3s;
+    /* animation-name: turn-verticaly; */
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
 .my-info {
     display: flex;
@@ -208,6 +228,14 @@ svg > path {
 }
 .my-info > .my-info-content {
     margin: auto 0;  
+}
+.my-info-content {
+    transform: translate3d(0, 600px, 0);
+    animation-delay: 0.9s;
+    /* animation-name: bottom-to-top; */
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 .my-info-content > p {
     color: var(--black-light);
@@ -220,7 +248,7 @@ svg > path {
 
 /* form */
 .contact-section {
-    /* min-height: 100vh; */
+    min-height: 100vh;
     text-overflow: clip;
 }
 .contact-section > h4 {
@@ -229,7 +257,7 @@ svg > path {
 
 .form {
     display: flex;
-    /* height: 100vh; */
+    height: 70vh;
 }
 .my-form {
     margin: auto;
@@ -241,11 +269,22 @@ svg > path {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
+    /* animation-name: fadeIn; */
+    animation-duration: .9s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 .form-group {
     padding: 10px 12px;
     margin: 6px 0;
+    animation-delay: .3s;
+    animation-duration: .6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
+
 .form-group > label, .form-group > small {
     display: block;
 }
@@ -290,6 +329,12 @@ svg > path {
     color: var(--tomato);
     border: 1px solid var(--tomato);
     cursor: pointer;
+}
+.form-group > button:disabled {
+    background: var(--light);
+    color: var(--black-light);
+    border: 1px solid var(--black-light);
+    cursor: not-allowed;
 }
 
 .footer {
@@ -349,6 +394,7 @@ svg > path {
 }
 .skill-section > h4 {
     color: var(--tomato);
+    /* animation-name: come-from-right; */
 }
 
 .skill-title {
@@ -356,6 +402,11 @@ svg > path {
     color: var(--black-light);
     margin-bottom: 10px;
     text-align: center;
+    /* animation-name: fadeIn; */
+    animation-duration: 0.9s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 .prog-lang-list {
     padding: 50px;
@@ -364,15 +415,20 @@ svg > path {
 .prog-lang-item {
     display: inline-block;
     margin: 12px;
+    animation-delay: 0.9s;
+    /* animation-name: fadeIn; */
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 .prog-lang-item > .prog-lang-img {
     width: 120px;
     height: 120px;
-    object-fit: contain;
 }
 .prog-lang-item > .prog-lang-desc {
     text-align: center;
-    color: var(--black-3);
+    color: var(--black-light);
 }
 
 .section-title {
@@ -381,7 +437,15 @@ svg > path {
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 20px;
+    /* animation-name: come-from-left; */
+    animation-delay: .5s;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    margin-top: 10px;
 }
+
 .project-section {
     background: var(--black);
 }
@@ -396,13 +460,25 @@ svg > path {
 }
 .project-item {
     display: inline-block;
-    /* padding: 10px; */
+    /* animation-name: fadeIn; */
+    /* animation-delay: 1s; */
+    animation-duration: .9s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    overflow: hidden;
 }
 .project-desc {
     font-size: 14px;
     color: var(--black-light);
     padding: 14px 30px;
     max-width: 350px;
+    /* animation-name: go-to-top; */
+    animation-delay: .9s;
+    animation-duration: .6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate3d(0, 100px, 0);
 }
 .project-content {
     display: flex;
@@ -418,27 +494,42 @@ svg > path {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
+    z-index: 1;
 }
-.project-view:hover > img {
+/* .project-view:hover > img {
     object-fit: fill;
     width: 170px;
-}
+} */
 .project-view > img {
-    width: 150px;
+    width: 0;
     object-fit: contain;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    /* animation-name: grow-from-center; */
+    animation-delay: .6s;
+    animation-duration: .6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
-.project-link {
+.project-link > a {
     color: var(--tomato);
     font-size: 12px;
     font-weight: 600;
 }
+.project-link {
+    /* animation-name: go-to-bottom; */
+    animation-delay: .9s;
+    animation-duration: .6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: rotate(80deg);
+    transform: translate3d(0, -100px, 0);
+}
 
-.project-link:hover {
+.project-link > a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -579,4 +670,86 @@ svg > path {
 .is-invalid {
     border-color: #c02a22 !important;
     box-shadow: 0 0 5px #c02a227a;
+}
+
+/* welcome animation : section 1 */
+@keyframes fall-down {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -130px, 0);
+    }
+    80% {
+        opacity: 1;
+        transform: translate3d(0, 10px, 0);
+    }
+    90% {
+        opacity: 1;
+        transform: translate3d(0, -10px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+/* Section title */
+@keyframes come-from-left {
+    from {
+        opacity: 0;
+        transform: translate3d(-400px, 0, 0);
+    } 
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes come-from-right {
+    from {
+        opacity: 0;
+        transform: translate3d(400px, 0, 0);
+    } 
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+/* about picture image */
+@keyframes turn-verticaly {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+/*  about */
+@keyframes bottom-to-top {
+    from {
+        transform: translate3d(0, 600px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+/* project item */
+@keyframes go-to-top {
+    from {
+        transform: translate3d(0, 100px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes go-to-bottom {
+    from {
+        transform: translate3d(0, -100px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+/* app img rotate and grow */
+@keyframes grow-from-center {
+    0% { width: 0; }
+    50% { width: 170px; }
+    100% { width: 150px; }
 }
