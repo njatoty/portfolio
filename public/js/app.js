@@ -4,11 +4,12 @@ window.addEventListener('scroll', () => {
   if (this.scrollY > 90) {
       header_top.classList.add('hidden');
       header_middle.classList.add('fixed-top');
-      document.querySelector('.body').style.marginTop = '90px';
+      // let max_margin = (header_top.clientHeight * 2);
+      // document.querySelector('.body').style.marginTop = max_margin + 'px';
   } else {
       header_top.classList.replace('hidden', 'showing');
       header_middle.classList.remove('fixed-top');
-      document.querySelector('.body').style.marginTop = '0px';
+      document.querySelector('.body').style.marginTop = '0';
   }
   
   var current = "";
@@ -53,8 +54,9 @@ const skillAnimation = () => {
   title.style.animationName = 'come-from-right';
   title.style.animationDelay = '0s';
   // skill title
-  let skill_title = document.querySelector('.skill-title');
-  skill_title.style.animationName = 'fadeIn';
+  let skill_titles = document.querySelectorAll('.skill-title');
+  for (let item of skill_titles)
+    item.style.animationName = 'fadeIn';
   // skill pl logo
   let img_item = document.querySelectorAll('.prog-lang-item');
   let delay = 0.5;

@@ -36,6 +36,7 @@ a {
     background: var(--black);
 }
 .header-top {
+    transition: all ease-out 2s;
     background: var(--black-3);
 }
 .body {
@@ -68,7 +69,7 @@ a {
     display: inline-block;
     padding: 16px 0;
     width: 20%;
-    transition: all .2s ease;
+    transition: all .1s ease-out;
     margin: 0 -3px;
     color: var(--light);
     font-weight: bold;
@@ -118,7 +119,7 @@ a {
 }
 .section {
     width: 100%;
-    padding: 50px 10px;
+    padding: 100px 10px;
     overflow: hidden;
 }
 svg > path {
@@ -421,10 +422,15 @@ svg > path {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     opacity: 0;
+    position: relative;
 }
 .prog-lang-item > .prog-lang-img {
     width: 120px;
     height: 120px;
+    object-fit: contain;
+}
+.prog-lang-item:hover > .prog-lang-img {
+    animation: shaking .9s ease-out !important;
 }
 .prog-lang-item > .prog-lang-desc {
     text-align: center;
@@ -496,10 +502,9 @@ svg > path {
     overflow: hidden;
     z-index: 1;
 }
-/* .project-view:hover > img {
-    object-fit: fill;
-    width: 170px;
-} */
+.project-view:hover > img {
+    width: 170px !important;
+}
 .project-view > img {
     width: 0;
     object-fit: contain;
@@ -546,6 +551,11 @@ svg > path {
     }
     .form-group > input, .form-group > textarea {
         padding: 16px 8px;
+    }
+    .prog-lang-item > .prog-lang-img {
+        width: 100px;
+        height: 100px;
+        margin: 0px 10px; 
     }
 }
 
@@ -751,5 +761,13 @@ svg > path {
 @keyframes grow-from-center {
     0% { width: 0; }
     50% { width: 170px; }
-    100% { width: 150px; }
+    100% { width: 150px;}
+}
+@keyframes shaking {
+    from {
+        transform: rotateY(0deg);
+    } 
+    to {
+        transform: rotateY(360deg);
+    }
 }
