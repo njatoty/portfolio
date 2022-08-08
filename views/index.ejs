@@ -265,4 +265,16 @@
     }
   });
 
+  // get cv pdf
+  function getCV() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", '/getcv', true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      let json = JSON.parse(xhr.response);
+      console.log(json);
+    }
+    xhr.send(null);
+  }
+
 </script>

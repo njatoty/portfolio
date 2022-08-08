@@ -42,6 +42,9 @@ const aboutAnimation = () => {
   // info
   let info = document.querySelector('.my-info-content');
   info.style.animationName = 'bottom-to-top';
+  // get cv button
+  let btn = document.querySelector('.my-info-btn > button');
+  btn.style.animationName = 'turn-horizontaly';
 }
 
 const skillAnimation = () => {

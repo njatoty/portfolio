@@ -47,4 +47,12 @@ const templateHtml = (senderEmail, senderUsername, message) => `<div style="disp
     </div>
 </div>`;
 
-module.exports = { getIndex, sendMessage };
+const getCV = (req, res) => {
+    res.download('/documents/cv.pdf');
+    return res.status(200).send({
+        status: 1,
+        message: 'Success'
+    });
+}
+
+module.exports = { getIndex, sendMessage, getCV };

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
 
 app.use(express.static('public'));
+app.use(express.static('uploads'));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
