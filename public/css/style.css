@@ -1,5 +1,5 @@
 :root {
-    --tomato: #DA534B;
+    --tomato: #da4b63;
     --black: rgb(33, 35, 41);
     --black-3: rgb(38, 40, 46);;
     --white: #fff;
@@ -75,7 +75,7 @@ a {
     font-weight: bold;
 }
 .menu-item:hover {
-    background: var(--white);
+    /* background: var(--white); */
     cursor: pointer;
     color: var(--tomato);
 }
@@ -93,7 +93,7 @@ a {
 
 .active-menu-item {
     position: relative;
-    background: var(--white);
+    /* background: var(--white); */
     cursor: pointer;
     color: var(--tomato);
 }
@@ -104,7 +104,7 @@ a {
     bottom: 0;
     height: 5px;
     background: var(--tomato);
-    animation: grow-width 0s forwards;
+    animation: grow-width 0.4s forwards;
 }
 
 @keyframes grow-width {
@@ -247,6 +247,43 @@ svg > path {
     color: var(--tomato);
 }
 
+.my-info-btn {
+    width: 100%;
+    text-align: center;
+}
+.my-info-btn > button {
+    padding: 8px 18px;
+    background: var(--tomato);
+    color: var(--white);
+    border: 1px solid var(--tomato);
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+.my-info-btn > button:hover {
+    background: var(--black-3);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.my-info-btn > button:after {
+    content: "";
+    background: #da4b6317;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s
+}
+.my-info-btn > button:active:after {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transition: 0s
+}
 /* form */
 .contact-section {
     min-height: 100vh;
@@ -386,8 +423,8 @@ svg > path {
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-    background-color: var(--black-3) !important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background-color: var(--black) !important;
 }
 
 .skill-section {
@@ -425,8 +462,8 @@ svg > path {
     position: relative;
 }
 .prog-lang-item > .prog-lang-img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
 }
 .prog-lang-item:hover > .prog-lang-img {
@@ -553,8 +590,8 @@ svg > path {
         padding: 16px 8px;
     }
     .prog-lang-item > .prog-lang-img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         margin: 0px 10px; 
     }
 }

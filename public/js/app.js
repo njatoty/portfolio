@@ -2,30 +2,25 @@ window.addEventListener('scroll', () => {
   const header_top = document.getElementById('header-top');
   const header_middle = document.getElementById('header-middle');
   if (this.scrollY > 90) {
-      header_top.classList.add('hidden');
-      header_middle.classList.add('fixed-top');
-      // let max_margin = (header_top.clientHeight * 2);
-      // document.querySelector('.body').style.marginTop = max_margin + 'px';
+    header_top.classList.add('hidden');
+    header_middle.classList.add('fixed-top');
   } else {
-      header_top.classList.replace('hidden', 'showing');
-      header_middle.classList.remove('fixed-top');
-      document.querySelector('.body').style.marginTop = '0';
+    header_top.classList.replace('hidden', 'showing');
+    header_middle.classList.remove('fixed-top');
   }
   
   var current = "";
   var sections = document.querySelectorAll('.section');
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    if (pageYOffset + 1 >= sectionTop)
+    if (this.scrollY + 1 >= sectionTop)
       current = section.getAttribute("id");
-    if (current === 'about')
-      aboutAnimation();
-    else if (current === 'skill')
-      skillAnimation();
-    else if (current === 'project')
-      projectAnimation();
-      else if (current === 'contact')
-        contactAnimation();
+    switch (current) {
+      case 'about': aboutAnimation(); break;
+      case 'skill': skillAnimation(); break;
+      case 'project': projectAnimation(); break;
+      case 'contact': contactAnimation(); break;
+    }
   });
 
   var navLi = document.querySelectorAll('a[href^="#"]');
@@ -81,7 +76,6 @@ const projectAnimation = () => {
   for (let item of desc) {
     item.style.animationName = 'go-to-top';
   }
-  console.log(desc.length)
   // img
   let img_item = document.querySelectorAll('.project-view > img');
   for (let item of img_item) {
@@ -101,7 +95,7 @@ const contactAnimation = () => {
   let form_title = document.querySelector('.my-form > .form-title');
   form_title.style.animationName = 'fadeIn';
   // project item
-  let inputs = document.querySelectorAll('.form-group');
+  let inputs = document.querySelectorAll('.my-form > .form-group');
   inputs.forEach((item, idx) => {
     item.style.animationName = idx % 2 === 0 ? 'come-from-left' : 'come-from-right';
   });
