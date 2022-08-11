@@ -63,8 +63,19 @@ a {
 }
 .header-middle {
     text-align: center;
-    background: var(--black);
+    background: var(--black-);
     z-index: 1;
+    position: relative;
+}
+
+.header-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1px 0;
+    background-color: var(--tomato);
+    width: 0;
+    opacity: .8;
 }
 .menu-item {
     position: relative;
@@ -95,7 +106,6 @@ a {
 
 .active-menu-item {
     position: relative;
-    /* background: var(--white); */
     cursor: pointer;
     color: var(--tomato);
 }
@@ -136,7 +146,6 @@ svg > path {
 }
 .section:nth-child(2) {
     background: var(--black);
-    /* height: 100vh; */
 }
 .section:nth-child(3) {
     background: var(--black-3);
@@ -304,7 +313,7 @@ svg > path {
 
 .form {
     display: flex;
-    height: 70vh;
+    min-height: 70vh;
 }
 .my-form {
     margin: auto;
@@ -433,6 +442,7 @@ svg > path {
     width: 100%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     background-color: var(--black) !important;
+    
 }
 
 .skill-section {

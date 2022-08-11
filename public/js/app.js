@@ -4,9 +4,14 @@ window.addEventListener('scroll', () => {
   if (this.scrollY > 90) {
     header_top.classList.add('hidden');
     header_middle.classList.add('fixed-top');
+    // header_middle.classList.add('header-progress');
+    // set header progress width
+    let progress = document.querySelector('.header-progress');
+    progress.style.width = parseInt((this.scrollY * 100) / document.querySelector('.body').scrollHeight) + '%';
   } else {
     header_top.classList.replace('hidden', 'showing');
     header_middle.classList.remove('fixed-top');
+    header_middle.classList.remove('header-progress');
   }
   
   var current = "";

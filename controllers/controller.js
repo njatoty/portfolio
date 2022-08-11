@@ -48,10 +48,9 @@ const templateHtml = (senderEmail, senderUsername, message) => `<div style="disp
 </div>`;
 
 const getCV = (req, res) => {
-    res.download('/documents/cv.pdf');
-    return res.status(200).send({
+    res.send({
         status: 1,
-        message: 'Success'
+        file: 'documents/cv.pdf'
     });
 }
 

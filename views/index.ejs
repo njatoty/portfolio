@@ -14,6 +14,7 @@
         <a href="#project" class="menu-item">Projects</a>
         <a href="#contact" class="menu-item">Contact me</a>
       </div>
+      <div class="header-progress"></div>
     </div>
     <div class="header-right"></div>
   </div>
@@ -45,7 +46,7 @@
         </div>
       </div>
       <div class="my-info-btn">
-        <button onclick="getCV()">Get my cv</button>
+        <button onclick="getCV(this)">Get my cv</button>
       </div>
     </div>
     <div class="section skill-section" id="skill">
@@ -266,15 +267,24 @@
   });
 
   // get cv pdf
-  function getCV() {
+  function getCV(btn) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", '/getcv', true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
-      let json = JSON.parse(xhr.response);
-      console.log(json);
+      if (xhr.status === 200) {
+        setTimeout(() => {
+          let json = JSON.parse(xhr.response);
+          let a = document.createElement('a');
+          a.target = '_blank';
+          a.href = json.file;
+          a.click();
+          btn.disabled = false;
+        }, 1000);
+      }
     }
     xhr.send(null);
+    btn.disabled = true;
   }
 
 </script>
