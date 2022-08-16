@@ -1,42 +1,3 @@
-window.addEventListener('scroll', () => {
-  const header_top = document.getElementById('header-top');
-  const header_middle = document.getElementById('header-middle');
-  if (this.scrollY > 90) {
-    header_top.classList.add('hidden');
-    header_middle.classList.add('fixed-top');
-    // header_middle.classList.add('header-progress');
-    // set header progress width
-    let progress = document.querySelector('.header-progress');
-    progress.style.width = parseInt((this.scrollY * 100) / document.querySelector('.body').scrollHeight) + '%';
-  } else {
-    header_top.classList.replace('hidden', 'showing');
-    header_middle.classList.remove('fixed-top');
-    header_middle.classList.remove('header-progress');
-  }
-  
-  var current = "";
-  var sections = document.querySelectorAll('.section');
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    if (this.scrollY + 1 >= sectionTop)
-      current = section.getAttribute("id");
-    switch (current) {
-      case 'about': aboutAnimation(); break;
-      case 'skill': skillAnimation(); break;
-      case 'project': projectAnimation(); break;
-      case 'contact': contactAnimation(); break;
-    }
-  });
-
-  var navLi = document.querySelectorAll('a[href^="#"]');
-  navLi.forEach((li) => {
-    li.classList.remove("active-menu-item");
-    if (li.getAttribute('href') === `#${current}`) {
-      li.classList.add("active-menu-item");
-    }
-  });
-});
-
 const aboutAnimation = () => {
   let title = document.querySelector('.profile-section > h4.section-title');
   title.style.animationName = 'come-from-left';
@@ -108,3 +69,59 @@ const contactAnimation = () => {
     item.style.animationName = idx % 2 === 0 ? 'come-from-left' : 'come-from-right';
   });
 }
+
+const section = document.querySelector('.body');
+const progressBar = document.querySelector('.header-progress');
+
+const scrollProgressBar = () => {
+    let scrollDistance = -(section.getBoundingClientRect().top);
+    let progressPercentage =
+        (scrollDistance /
+            (section.getBoundingClientRect().height - 
+                document.documentElement.clientHeight)) * 100;
+
+    let val = Math.floor(progressPercentage);
+    progressBar.style.width = val + '%';
+
+    if (val < 0) {
+        progressBar.style.width = '0%';
+    }
+};
+
+window.addEventListener('scroll', () => {
+  const header_top = document.getElementById('header-top');
+  const header_middle = document.getElementById('header-middle');
+  if (this.scrollY > 90) {
+    header_top.classList.add('hidden');
+    header_middle.classList.add('fixed-top');
+    // set header progress width
+    scrollProgressBar();
+  } else {
+    header_top.classList.replace('hidden', 'showing');
+    header_middle.classList.remove('fixed-top');
+    header_middle.classList.remove('header-progress');
+    progressBar.style.width = '0%';
+  }
+  
+  var current = "";
+  var sections = document.querySelectorAll('.section');
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (this.scrollY + 1 >= sectionTop)
+      current = section.getAttribute("id");
+    switch (current) {
+      case 'about': aboutAnimation(); break;
+      case 'skill': skillAnimation(); break;
+      case 'project': projectAnimation(); break;
+      case 'contact': contactAnimation(); break;
+    }
+  });
+
+  var navLi = document.querySelectorAll('a[href^="#"]');
+  navLi.forEach((li) => {
+    li.classList.remove("active-menu-item");
+    if (li.getAttribute('href') === `#${current}`) {
+      li.classList.add("active-menu-item");
+    }
+  });
+});
